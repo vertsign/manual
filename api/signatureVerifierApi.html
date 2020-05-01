@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vertsign | Manual</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/fluig-style-guide.min.css" />
+
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/mediaqueries.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/logo.png" />
+
+    <style>
+        .panel-body {
+            max-height: 250px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="api.html"> </span> Integration</a>
+                        </li>
+                        <li>
+                            <a href="documentApi.html"> </span> Document</a>
+                        </li>
+                        <li>
+                            <a href="registeredEmailApi.html"></span> Registered Email</a>
+                        </li>
+                        <li>
+                            <a href="signatureApi.html"></span> Signature</a>
+                        </li>
+                        <li class="active">
+                            <a href="signatureVerifierApi.html"></span> Signature Verifier</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <div class="col-sm-3">
+
+                <div class="panel panel-info fixed-menu">
+                    <div class="panel-heading">
+                        <h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Endpoints</h1>
+                    </div>
+                    <div class="list-group">
+                        <a href="#secaoVerifySignature" class="list-group-item">
+                            <p><span class="label label-warning"><strong>POST</strong></span> Verify Signature </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div id="secaoVerifySignature" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Verify Signature</h1>
+                        <p>Allows to check the signatures of any signed document. Verifies signatures in the uploaded file.</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/SignatureVerifier/verifySignature</p>
+                      
+
+                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Request headers</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+    
+                                        <td>Content-Type (optional)</td>
+                                        <td>string</td>
+                                        <td>Media type of the body sent to the API.</td>
+                                    </tr>
+                                    <tr>
+    
+                                            <td>Token</td>
+                                            <td>string</td>
+                                            <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+
+                            <p>Request body</p>
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-primary">
+
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        application/json
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4>Sample</h4>
+                                                <pre><code>
+{
+    "documentFileId": "string",
+    "signatureFileId": "string",
+    "detailsLevel": 0,
+    "generateReport": true,
+    "extractOriginalContent": true,
+    "signatureFileName": "string",
+    "documentFileName": "string"
+}
+                    </code></pre>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <h4>Schema</h4>
+                                                <pre><code>
+{
+    "type": "object",
+    "required": [
+        "documentFileId",
+        "signatureFileId",
+        "detailsLevel",
+        "generateReport",
+        "extractOriginalContent",
+        "signatureFileName",
+        "documentFileName"
+    ],
+    "properties": {
+        "documentFileId": {
+            "type": "string"
+        },
+        "signatureFileId": {
+            "type": "string"
+        },
+        "detailsLevel": {
+            "type": "integer",
+            "format": "int32"
+        },
+        "generateReport": {
+            "type": "boolean"
+        },
+        "extractOriginalContent": {
+            "type": "boolean"
+        },
+        "signatureFileName": {
+            "type": "string"
+        },
+        "documentFileName": {
+            "type": "string"
+        }
+    }
+}
+                    </code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        
+
+          
+                        
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+
+                        <p>Representations</p>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">application/json</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Sample</h4>
+                                        <pre><code>
+{ 
+    "validationSignatures":[ 
+        { 
+            "signer":{ 
+                "dateSignUp":"string",
+                "id":0,
+                "uid":"string",
+                "name":"string",
+                "email":"string",
+                "region":{ 
+
+                },
+                "individualIdentificationCode":"string",
+                "tipoIdentificador":{ 
+
+                },
+                "additionalField":[ 
+                { 
+                    "field":"string",
+                    "value":"string"
+                }
+                ],
+                "companies":[ 
+                { 
+                    "id":0,
+                    "userId":0,
+                    "name":"string",
+                    "companyType":1
+                }
+                ],
+                "counterparts":[ 
+                { 
+                    "id":0,
+                    "userId":0,
+                    "name":"string",
+                    "companyType":1
+                }
+                ],
+                "groupCounterparts":[ 
+                { 
+                    "id":0,
+                    "userId":0,
+                    "name":"string",
+                    "companyType":1
+                }
+                ],
+                "integration":0,
+                "nameContext":"string",
+                "signatureStatus":{ 
+                "status":0,
+                "textualValue":"string"
+                },
+                "certificationPathStatus":{ 
+                "status":0,
+                "textualValue":"string"
+                },
+                "certificatesValidationInfo":[ 
+                { 
+                    "serialNumber":"string",
+                    "notBefore":"string",
+                    "notAfter":"string",
+                    "type":"string",
+                    "commonName":"string",
+                    "issuerName":"string",
+                    "fingerPrint":"string",
+                    "keyUsage":[ 
+                        "string"
+                    ],
+                    "status":{ 
+                        "status":0,
+                        "textualValue":"string"
+                    }
+                }
+                ],
+                "policyConstraintsStatus":{ 
+                "status":0,
+                "textualValue":"string"
+                },
+                "policyValidationInfo":{ 
+                "notBefore":"string",
+                "notAfter":"string",
+                "applicationField":"string",
+                "policyName":"string",
+                "issuerEntity":"string",
+                "policyIdentifier":"string",
+                "issueDate":"string",
+                "policyConstraintsValidationInfo":[ 
+                    { 
+                        "constraintName":"string",
+                        "status":{ 
+                            "status":0,
+                            "textualValue":"string"
+                        },
+                        "expectedValue":"string",
+                        "foundValue":"string"
+                    }
+                ]
+                },
+                "declaredTime":"string",
+                "validationTime":"string",
+                "signatureTimeType":"string",
+                "signatureDetails":{ 
+                "attributes":[ 
+                    { 
+                        "identifier":"string",
+                        "name":"string",
+                        "isSigned":true,
+                        "status":{ 
+                            "status":0,
+                            "textualValue":"string"
+                        },
+                        "fields":[ 
+                            { 
+                            "fieldName":"string",
+                            "fieldValue":"string"
+                            }
+                        ]
+                    }
+                ],
+                "signatureDataPosition":"string",
+                "integrityStatus":{ 
+                    "status":0,
+                    "textualValue":"string"
+                },
+                "signatureStandard":"string",
+                "pkiCompliance":"string",
+                "certIssuer":"string",
+                "serialNumber":"string",
+                "hashAlgorithm":"string",
+                "signatureAlgorithm":"string",
+                "keyLengh":0
+                },
+                "cnpj":"string"
+            },
+            "errors":[ 
+                "string"
+            ],
+            "warnings":[ 
+                "string"
+            ]
+        }
+        ],
+        "documentStatus":{ 
+        "status":0,
+        "textualValue":"string"
+        },
+        "errors":[ 
+        { 
+            "code":0,
+            "message":"string",
+            "detail":"string",
+            "modelState":[ 
+                { 
+                "field":"string",
+                "error":"string"
+                }
+            ]
+        }
+        ],
+        "generalWarnings":[ 
+        "string"
+        ],
+        "signedContentS3Path":"string",
+        "signedFileName":"string",
+        "signedFileType":"string",
+        "reportS3Path":"string",
+        "reportFileName":"string"
+    }
+                                                    
+                                                    
+                        </code></pre>
+                                        </div>
+
+
+                                        <div class="col-md-6">
+                                            <h4>Schema</h4>
+                                            <pre><code>
+{
+    "type": "object",
+    "required": [
+        "validationSignatures",
+        "documentStatus",
+        "errors",
+        "generalWarnings",
+        "signedContentS3Path",
+        "signedFileName",
+        "signedFileType",
+        "reportS3Path",
+        "reportFileName"
+    ],
+    "properties": {
+        "validationSignatures": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": [
+            "signer",
+            "errors",
+            "warnings"
+            ],
+            "properties": {
+            "signer": {
+                "type": "object",
+                "required": [
+                "uid",
+                "name",
+                "email",
+                "region",
+                "individualIdentificationCode",
+                "additionalField",
+                "companies",
+                "counterparts",
+                "groupCounterparts",
+                "integration",
+                "nameContext",
+                "signatureStatus",
+                "certificationPathStatus",
+                "certificatesValidationInfo",
+                "policyConstraintsStatus",
+                "policyValidationInfo",
+                "declaredTime",
+                "validationTime",
+                "signatureTimeType",
+                "signatureDetails",
+                "cnpj"
+                ],
+                "properties": {
+                "dateSignUp": {
+                    "type": "string",
+                    "description": "Registration date in the system",
+                    "format": "date-time",
+                    "x-nullable": true
+                },
+                "id": {
+                    "type": "integer",
+                    "format": "int32",
+                    "x-nullable": true
+                },
+                "uid": {
+                    "type": "string",
+                    "description": "Unique User Identification generated by ACS",
+                    "x-nullable": true
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "region": {
+                    "title": "InternationalPFName",
+                    "allOf": [
+                    {
+                        "type": "integer",
+                        "description": "",
+                        "x-enumNames": [
+                        "Brasil",
+                        "Italy",
+                        "Peru",
+                        "Paraguay"
+                        ],
+                        "enum": [
+                        1,
+                        2,
+                        3,
+                        4
+                        ]
+                    }
+                    ],
+                    "x-nullable": true
+                },
+                "individualIdentificationCode": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "tipoIdentificador": {
+                    "x-nullable": true,
+                    "allOf": [
+                    {
+                        "type": "integer",
+                        "description": "",
+                        "x-enumNames": [
+                        "CPF",
+                        "CodigoFiscal",
+                        "DNI_Peru",
+                        "CI_Paraguay"
+                        ],
+                        "enum": [
+                        1,
+                        2,
+                        3,
+                        4
+                        ]
+                    }
+                    ]
+                },
+                "additionalField": {
+                    "type": "array",
+                    "items": {
+                    "type": "object",
+                    "required": [
+                        "field",
+                        "value"
+                    ],
+                    "properties": {
+                        "field": {
+                        "type": "string"
+                        },
+                        "value": {
+                        "type": "string"
+                        }
+                    }
+                    },
+                    "x-nullable": true
+                },
+                "companies": {
+                    "type": "array",
+                    "items": {
+                    "type": "object",
+                    "required": [
+                        "id",
+                        "userId",
+                        "name",
+                        "companyType"
+                    ],
+                    "properties": {
+                        "id": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "name": {
+                        "type": "string"
+                        },
+                        "companyType": {
+                        "type": "integer",
+                        "description": "",
+                        "x-enumNames": [
+                            "Company",
+                            "Counterpart",
+                            "GroupCounterpart"
+                        ],
+                        "enum": [
+                            1,
+                            2,
+                            3
+                        ]
+                        }
+                    }
+                    },
+                    "x-nullable": true
+                },
+                "counterparts": {
+                    "type": "array",
+                    "items": {
+                    "type": "object",
+                    "required": [
+                        "id",
+                        "userId",
+                        "name",
+                        "companyType"
+                    ],
+                    "properties": {
+                        "id": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "name": {
+                        "type": "string"
+                        },
+                        "companyType": {
+                        "type": "integer",
+                        "description": "",
+                        "x-enumNames": [
+                            "Company",
+                            "Counterpart",
+                            "GroupCounterpart"
+                        ],
+                        "enum": [
+                            1,
+                            2,
+                            3
+                        ]
+                        }
+                    }
+                    },
+                    "x-nullable": true
+                },
+                "groupCounterparts": {
+                    "type": "array",
+                    "items": {
+                    "type": "object",
+                    "required": [
+                        "id",
+                        "userId",
+                        "name",
+                        "companyType"
+                    ],
+                    "properties": {
+                        "id": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "userId": {
+                        "type": "integer",
+                        "format": "int32"
+                        },
+                        "name": {
+                        "type": "string"
+                        },
+                        "companyType": {
+                        "type": "integer",
+                        "description": "",
+                        "x-enumNames": [
+                            "Company",
+                            "Counterpart",
+                            "GroupCounterpart"
+                        ],
+                        "enum": [
+                            1,
+                            2,
+                            3
+                        ]
+                        }
+                    }
+                    },
+                    "x-nullable": true
+                },
+                "integration": {
+                    "type": "integer",
+                    "description": "",
+                    "x-enumNames": [
+                    "Comum",
+                    "PJ",
+                    "Contexto"
+                    ],
+                    "enum": [
+                    0,
+                    1,
+                    2
+                    ]
+                },
+                "nameContext": {
+                    "type": "string",
+                    "x-nullable": true
+                },
+                "signatureStatus": {
+                    "type": "object",
+                    "required": [
+                    "status",
+                    "textualValue"
+                    ],
+                    "properties": {
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "textualValue": {
+                        "type": "string"
+                    }
+                    }
+                },
+                "certificationPathStatus": {
+                    "type": "object",
+                    "required": [
+                    "status",
+                    "textualValue"
+                    ],
+                    "properties": {
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "textualValue": {
+                        "type": "string"
+                    }
+                    }
+                },
+                "certificatesValidationInfo": {
+                    "type": "array",
+                    "items": {
+                    "type": "object",
+                    "required": [
+                        "commonName",
+                        "issuerName",
+                        "fingerPrint"
+                    ],
+                    "properties": {
+                        "serialNumber": {
+                        "type": "string"
+                        },
+                        "notBefore": {
+                        "type": "string",
+                        "format": "date-time"
+                        },
+                        "notAfter": {
+                        "type": "string",
+                        "format": "date-time"
+                        },
+                        "type": {
+                        "type": "string"
+                        },
+                        "commonName": {
+                        "type": "string"
+                        },
+                        "issuerName": {
+                        "type": "string"
+                        },
+                        "fingerPrint": {
+                        "type": "string"
+                        },
+                        "keyUsage": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                        },
+                        "status": {
+                        "type": "object",
+                        "required": [
+                            "status",
+                            "textualValue"
+                        ],
+                        "properties": {
+                            "status": {
+                            "type": "integer",
+                            "format": "int32"
+                            },
+                            "textualValue": {
+                            "type": "string"
+                            }
+                        }
+                        }
+                    }
+                    }
+                },
+                "policyConstraintsStatus": {
+                    "type": "object",
+                    "required": [
+                    "status",
+                    "textualValue"
+                    ],
+                    "properties": {
+                    "status": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "textualValue": {
+                        "type": "string"
+                    }
+                    }
+                },
+                "policyValidationInfo": {
+                    "allOf": [
+                    {
+                        "type": "object",
+                        "required": [
+                        "policyName",
+                        "issuerEntity"
+                        ],
+                        "properties": {
+                        "notBefore": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "notAfter": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "applicationField": {
+                            "type": "string"
+                        },
+                        "policyName": {
+                            "type": "string"
+                        },
+                        "issuerEntity": {
+                            "type": "string"
+                        },
+                        "policyIdentifier": {
+                            "type": "string"
+                        },
+                        "issueDate": {
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "policyConstraintsValidationInfo": {
+                            "type": "array",
+                            "items": {
+                            "type": "object",
+                            "required": [
+                                "constraintName",
+                                "status",
+                                "expectedValue",
+                                "foundValue"
+                            ],
+                            "properties": {
+                                "constraintName": {
+                                "type": "string"
+                                },
+                                "status": {
+                                "type": "object",
+                                "required": [
+                                    "status",
+                                    "textualValue"
+                                ],
+                                "properties": {
+                                    "status": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                    },
+                                    "textualValue": {
+                                    "type": "string"
+                                    }
+                                }
+                                },
+                                "expectedValue": {
+                                "type": "string",
+                                "x-nullable": true
+                                },
+                                "foundValue": {
+                                "type": "string",
+                                "x-nullable": true
+                                }
+                            }
+                            }
+                        }
+                        }
+                    }
+                    ],
+                    "x-nullable": true
+                },
+                "declaredTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "validationTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "signatureTimeType": {
+                    "type": "string"
+                },
+                "signatureDetails": {
+                    "type": "object",
+                    "required": [
+                    "integrityStatus",
+                    "signatureStandard",
+                    "pkiCompliance"
+                    ],
+                    "properties": {
+                    "attributes": {
+                        "type": "array",
+                        "items": {
+                        "type": "object",
+                        "properties": {
+                            "identifier": {
+                            "type": "string"
+                            },
+                            "name": {
+                            "type": "string"
+                            },
+                            "isSigned": {
+                            "type": "boolean"
+                            },
+                            "status": {
+                            "type": "object",
+                            "required": [
+                                "status",
+                                "textualValue"
+                            ],
+                            "properties": {
+                                "status": {
+                                "type": "integer",
+                                "format": "int32"
+                                },
+                                "textualValue": {
+                                "type": "string"
+                                }
+                            }
+                            },
+                            "fields": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                "fieldName",
+                                "fieldValue"
+                                ],
+                                "properties": {
+                                "fieldName": {
+                                    "type": "string"
+                                },
+                                "fieldValue": {
+                                    "type": "string"
+                                }
+                                }
+                            }
+                            }
+                        }
+                        }
+                    },
+                    "signatureDataPosition": {
+                        "type": "string"
+                    },
+                    "integrityStatus": {
+                        "type": "object",
+                        "required": [
+                        "status",
+                        "textualValue"
+                        ],
+                        "properties": {
+                        "status": {
+                            "type": "integer",
+                            "format": "int32"
+                        },
+                        "textualValue": {
+                            "type": "string"
+                        }
+                        }
+                    },
+                    "signatureStandard": {
+                        "type": "string"
+                    },
+                    "pkiCompliance": {
+                        "type": "string"
+                    },
+                    "certIssuer": {
+                        "type": "string"
+                    },
+                    "serialNumber": {
+                        "type": "string"
+                    },
+                    "hashAlgorithm": {
+                        "type": "string"
+                    },
+                    "signatureAlgorithm": {
+                        "type": "string"
+                    },
+                    "keyLengh": {
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                    }
+                },
+                "cnpj": {
+                    "type": "string",
+                    "x-nullable": true
+                }
+                }
+            },
+            "errors": {
+                "type": "array",
+                "items": {
+                "type": "string"
+                },
+                "x-nullable": true
+            },
+            "warnings": {
+                "type": "array",
+                "items": {
+                "type": "string"
+                }
+            }
+            }
+        }
+        },
+        "documentStatus": {
+        "type": "object",
+        "required": [
+            "status",
+            "textualValue"
+        ],
+        "properties": {
+            "status": {
+            "type": "integer",
+            "format": "int32"
+            },
+            "textualValue": {
+            "type": "string"
+            }
+        }
+        },
+        "errors": {
+        "type": "array",
+        "items": {
+            "type": "object",
+            "required": [
+            "code",
+            "message",
+            "detail",
+            "modelState"
+            ],
+            "properties": {
+            "code": {
+                "type": "integer",
+                "format": "int32"
+            },
+            "message": {
+                "type": "string"
+            },
+            "detail": {
+                "type": "string",
+                "x-nullable": true
+            },
+            "modelState": {
+                "type": "array",
+                "items": {
+                "type": "object",
+                "required": [
+                    "field",
+                    "error"
+                ],
+                "properties": {
+                    "field": {
+                    "type": "string"
+                    },
+                    "error": {
+                    "type": "string"
+                    }
+                }
+                },
+                "x-nullable": true
+            }
+            }
+        },
+        "x-nullable": true
+        },
+        "generalWarnings": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        },
+        "x-nullable": true
+        },
+        "signedContentS3Path": {
+        "type": "string",
+        "x-nullable": true
+        },
+        "signedFileName": {
+        "type": "string"
+        },
+        "signedFileType": {
+        "type": "string"
+        },
+        "reportS3Path": {
+        "type": "string"
+        },
+        "reportFileName": {
+        "type": "string"
+        }
+    }
+}                      
+                    </code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+
+
+                        
+
+                    </article>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-blurb">
+                <div class="small-print">
+                    <div class="container">
+                        <small>
+                            <strong>Vertsign:</strong>
+                            <a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+                            <a class="link-default" href="./politica.html">Política de Privacidade</a>
+                        </small>
+                        <small>
+                            <strong>Certisign:</strong>
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+                                Privacidade</a>
+                        </small>
+                        <br>
+                        <small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+                        <small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+                        <small><strong>+55 (11) 2663-8989</strong></small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+@media only screen and (min-width: 800px) {
+    .fixed-menu {
+        position: fixed;
+        width: 20%;
+        top: 70px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container-fluid>.navbar-collapse, .container-fluid>.navbar-header, .container>.navbar-collapse, .container>.navbar-header  {
+        display: flex !important;
+        justify-content: center;
+    }
+} 

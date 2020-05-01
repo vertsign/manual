@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Vertsign | Manual</title>
+
+	<link type="text/css" rel="stylesheet" href="css/fluig-style-guide.min.css" />
+
+	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/mediaqueries.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/logo.png" />
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="collapse navbar-collapse" id="navbar">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="instalacao.html"> </span> Instalação</a>
+						</li>
+
+						<li>
+							<a href="configuracao.html"></span> Configuração</a>
+						</li>
+						<li>
+							<a href="index.html"></span> Uso</a>
+						</li>
+						<li>
+							<a href="portal.html"></span> Portal de Assinaturas</a>
+						</li>
+						<li>
+							<a href="suporte.html"></span> Suporte</a>
+						</li>
+						<li>
+							<a href="faq.html"></span> FAQ</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+
+			<div class="col-sm-3">
+
+				<div class="panel panel-info fixed-menu">
+					<div class="panel-heading">
+						<h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Tópicos</h1>
+					</div>
+					<div class="list-group">
+						<a href="#secaoFormularios" class="list-group-item">Formulários</a>
+						<a href="#secaoDatasets" class="list-group-item">Datasets</a>
+						<a href="#secaoServicos" class="list-group-item">Serviços</a>
+						<a href="#secaoOutros" class="list-group-item">Campo Customizado</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+
+				<div id="secaoFormularios" class="row">
+					<article class="col-xs-12">
+						<h2>Formulários</h2>
+						<p>Nesta etapa os formulários serão instalados para realizar o cadastro de assinantes, cadastro
+							de parâmetros gerais do app e formulário para auxiliar no envio e retorno de documentos
+							enviados para assinatura.
+							<ul>
+								<li> <strong> Cadastro de Assinantes</strong>: Formulário responsável por armazenar os
+									dados dos assinantes inseridos através da widget. O fluig irá armazenar o nome,
+									e-mail e CPF.</li>
+								<li> <strong> Parâmetros Gerais</strong>:Formulário responsável por armazenar os
+									parâmetros do app. Ele será atualizado conforme a instalação é realizada.</li>
+								<li> <strong>Formulário Auxiliar</strong>: Formulário responsável por registrar cada
+									documento enviado para assinatura, trazendo em cada registro informações relevantes
+									sobre o documento enviado. Este formulário não será acessado de forma direta pelo
+									usuário.</p>
+						</li>
+						</ul>
+
+						<img src="images/wizard-form1.png" class="img-fluid" alt="">
+
+						<p>Feita a instalação, será criada uma pasta chamada Vertsign dentro da pasta raíz do fluig.</p>
+						<img src="images/wizard-form2.png" class="img-fluid" alt="">
+						<img src="images/wizard-form3.png" class="img-fluid" alt="">
+
+					</article>
+				</div>
+
+				<div id="secaoDatasets" class="row">
+					<article class="col-xs-12">
+						<h2>Datasets</h2>
+						<p>Esta etapa é responsável por realizar a instalação dos datasets que farão a integração entre
+							o fluig e a
+							Certisign.</p>
+						<p>Abaixo estão os datasets que serão instalados:</p>
+						<ul>
+							<li><strong>ds_upload_vertsign</strong>: Lista todos os documentos do formulário auxiliar
+								que estão pendentes
+								de envio e envia para a Certisign.</li>
+							<li><strong>ds_package_vertsign</strong>: Verifica se os documentos foram assinados no
+								portal de assinaturas da
+								Certisign e retorna o manifesto para o ECM do fluig.</li>
+							<li><strong>ds_documents_vertsign</strong>: Lista todos os documentos que foram enviados
+								para a Certisign.
+								Posteriormente será utilizado para realizar o cancelamento de um documento enviado.</li>
+							<li><strong>ds_upload_vertsign_manual</strong>: Dataset responsável por enviar os documentos
+								para assinatura.
+								É executado após cada envio.</li>
+							<li><strong>ds_auxiliar_vertsign</strong>: Dataset responsável por auxiliar a widget
+								executando os webservices
+								do fluig.</li>
+							<li><strong>ds_delete_vertsign</strong>: Deleta um arquivo do Portal de Assinaturas da
+								Certisign.</li>
+							<li><strong>ds_documents_autocomplete_vertsign</strong>: Dataset responsável por listar
+								todos os arquivos
+								disponíveis para envio.</li>
+							<li><strong>ds_admin_vertsign</strong>: Dataset responsável por listar todos os usuários
+								administradores da plataforma.</li>
+							<li><strong>ds_signers_vertsign</strong>: Dataset responsável por listar todos os assinantes
+								cadastrados.</li>
+						</ul>
+						<img src="images/wizard-dataset1.png" class="img-fluid" alt="Wizard Dataset">
+
+						<p>Após a instalação, os datasets marcados como Sincronizado serão criados no Agendador de
+							tarefas do fluig.
+							Por padrão serão executados uma ver por dia, mas pode ser editado. Para visualizar os
+							datasets no Agendador de
+							tarefas basta acessar:
+
+						</p>
+						<p>Painel de Controle > Parâmetros Técnicos > Agendador de tarefas</p>
+						<img src="images/wizard-dataset2.png" class="img-fluid" alt="Wizard Dataset">
+
+					</article>
+				</div>
+
+				<div id="secaoServicos" class="row">
+					<article class="col-xs-12">
+						<h2>Serviços</h2>
+						<p>Nesta etapa será realizada a instalação dos serviços utilizados pelo app:</p>
+						<ul>
+							<li><strong>ECMCardService_Vertsign</strong>: Webservice responsável por realizar
+								operações referentes a formulários no
+								fluig.</li>
+							<li><strong>ECMCustomFieldsService_Vertsign</strong>: Webservice responsável por
+								interagir com os campos customizados do
+								fluig.</li>
+							<li><strong>ECMDocumentService_Vertsign</strong>: Webservice responsável por realizar
+								operações referentes a documentos
+								do
+								fluig.</li>
+							<li><strong>ECMFolderService_Vertsign</strong>: Webservice responsável por realizar
+								operações referentes a pastas no
+								fluig.</li>
+							<li><strong>ECMTokenService_Vertsign</strong>: Webservice responsável por interagir
+								com os token’s do fluig. Pode ser utilizado para pesquisar e validar os token’s
+								existentes.</li>
+						</ul>
+						<img src="images/wizard-service1.png" class="img-fluid" alt="Wizard Serviço">
+						<p>Feita a instalação dos serviços, eles poderão ser encontrados em:
+
+						</p>
+						<p>Painel de Controle > Desenvolvimento > Serviços</p>
+						<img src="images/wizard-service2.png" class="img-fluid" alt="Wizard Serviço">
+
+					</article>
+				</div>
+
+				<div id="secaoOutros" class="row">
+					<article class="col-xs-12">
+						<h2>Campo Customizado</h2>
+						<p>Nesta etapa da instalação será instalado o campo customizado que será atualizado a cada
+							alteração de status do
+							documento enviado para assinatura.</p>
+						<img src="images/wizard-other1.png" class="img-fluid" alt="Wizard Serviço">
+						<p>Após a instalação, para visualizar o campo customizado basta acessar:
+
+						</p>
+						<p>Painel de Controle > Personalização > Campos customizados</p>
+
+						<img src="images/wizard-other2.png" class="img-fluid" alt="Wizard Serviço">
+					</article>
+				</div>
+
+
+				<div class="row">
+					<div class="alert alert-info" role="alert">
+						<h3 class="fs-no-margin-top">
+							<strong>Observação</strong>
+						</h3>
+						Para fins de testes e desenvolvimentos de BPM (vide tópico <a class="link-default"
+							href="configuracao.html#secaoIntegracaoBpm">"Integração com BPM"</a>), o app Vertsign poderá
+						ser instalado no ambiente de homologação/testes do fluig desde que
+						este esteja direcionado para o mesmo License Server do ambiente de produção fluig. </p>
+						<p>Vale ressaltar que é necessário um Token de homologação para o Portal de Assinaturas (vide
+							tópico <a class="link-default" href="configuracao.html#secaoCampos">"Campos"</a> em
+							"Instalação").
+
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="alert alert-danger" role="alert">
+						<h3 class="fs-no-margin-top">
+							<strong>Atenção!</strong>
+						</h3>
+						Caso algum erro tenha ocorrido na instalação, consulte o <a class="link-default" href="./faq.html">FAQ</a>.
+
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<footer>
+			<div class="footer-blurb">
+				<div class="small-print">
+					<div class="container">
+						<small>
+							<strong>Vertsign:</strong>
+							<a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+							<a class="link-default" href="./politica.html">Política de Privacidade</a>
+						</small>
+						<small>
+							<strong>Certisign:</strong>
+							<a class="link-default" target="_blank"
+								href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+							<a class="link-default" target="_blank"
+								href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+								Privacidade</a>
+						</small>
+						<br>
+						<small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+						<small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+						<small><strong>+55 (11) 2663-8989</strong></small>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vertsign | Manual</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/fluig-style-guide.min.css" />
+
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/mediaqueries.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/logo.png" />
+
+    <style>
+        .panel-body {
+            max-height: 250px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="api.html"> </span> Integration</a>
+                        </li>
+                        <li>
+                            <a href="documentApi.html"> </span> Document</a>
+                        </li>
+                        <li class="active">
+                            <a href="registeredEmailApi.html"></span> Registered Email</a>
+                        </li>
+                        <li>
+                            <a href="signatureApi.html"></span> Signature</a>
+                        </li>
+                        <li>
+                            <a href="signatureVerifierApi.html"></span> Signature Verifier</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <div class="col-sm-3">
+
+                <div class="panel panel-info fixed-menu">
+                    <div class="panel-heading">
+                        <h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Endpoints</h1>
+                    </div>
+                    <div class="list-group">
+                        <a href="#secaoCertificate" class="list-group-item">
+                            <p><span class="label label-success"><strong>GET</strong></span> Certificate </p>
+                        </a>
+                        <a href="#secaoCreate" class="list-group-item">
+                            <p><span class="label label-warning"><strong>POST</strong></span> Create </p>
+                        </a>
+                        <a href="#secaoDownload" class="list-group-item">
+                            <p><span class="label label-warning"><strong>POST</strong></span> Download Certificate </p>
+                        </a>
+                        <a href="#secaoListFilter" class="list-group-item">
+                            <p><span class="label label-success"><strong>GET</strong></span> List By Filter </p>
+                        </a>
+                        <a href="#secaoListPeriod" class="list-group-item">
+                            <p><span class="label label-success"><strong>GET</strong></span> List By Period </p>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div id="secaoCertificate" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Certificate</h1>
+                        <p>Download the registered email certificate by certificate Id.</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/registeredEmail/certificate/{id}</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request parameters</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>id</td>
+                                    <td>int</td>
+                                    <td>Certificate Id</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request headers</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+
+                                    <td>Token</td>
+                                    <td>string</td>
+                                    <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoCreate" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Create</h1>
+                        <p>The Registered Email allows you to have proof, with legal validity, of the moment it is sent,
+                            the moment it is received, where it is sent from, where it is received, and the content of
+                            the communication itself.</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/registeredEmail/Create
+                        </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request headers</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>Content-Type (optional)</td>
+                                    <td>string</td>
+                                    <td>Media type of the body sent to the API.</td>
+                                </tr>
+                                <tr>
+
+                                    <td>Token</td>
+                                    <td>string</td>
+                                    <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        
+
+                        <p>Request body</p>
+                        <small>accountId: It's an optional parameter to be used by context integration</small>
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-primary">
+
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        application/json
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4>Sample</h4>
+                                                <pre><code>
+{
+    "subject": "Email Subject",
+    "body": "Here accepts plain text or HTML",
+    "recipients": [
+        {
+            "name": "NameRecipient_1",
+            "email": "recipient_1@mail.com"
+        },
+        {
+            "name": "NameRecipient_2",
+            "email": "recipient_2@mail.com"
+        }
+    ],
+    "attachments": [
+        {
+            "upload": {
+                "id": "uploads/131740-e96c2160-4a90-4e8b-8d03-35eb316e67c4/PDF-minimo.pdf",
+                "name": "PDF-minimo.pdf"
+            }
+        },
+        {
+            "upload": {
+                "id": "uploads/146132-e53c1a7f-28aa-4570-a51d-f03eb63e35cc/PDF-Teste.pdf",
+                "name": "PDF-Teste.pdf"
+            }
+        }
+    ],
+    "notified": "notified_1@mail.com,notified_2@mail.com",
+    "sender": {
+        "name": "SenderName",
+        "mail": "sender@mail.com",
+        "individualIdentificationCode": "23993401409"
+    },
+    "accountId": 150556
+}
+        </code></pre>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <h4>Schema</h4>
+                                                <pre><code>
+{
+    "example": {
+            "subject": "Email Subject",
+            "body": "Here accepts plain text or HTML",
+            "recipients": [
+        {
+            "name": "NameRecipient_1",
+            "email": "recipient_1@mail.com"
+        },
+        {
+            "name": "NameRecipient_2",
+            "email": "recipient_2@mail.com"
+        }
+        ],
+        "attachments": [
+        {
+            "upload": {
+                "id": "uploads/131740-e96c2160-4a90-4e8b-8d03-35eb316e67c4/PDF-minimo.pdf",
+                "name": "PDF-minimo.pdf"
+            }
+        },
+        {
+            "upload": {
+                "id": "uploads/146132-e53c1a7f-28aa-4570-a51d-f03eb63e35cc/PDF-Teste.pdf",
+                "name": "PDF-Teste.pdf"
+            }
+        }
+        ],
+        "notified": "notified_1@mail.com,notified_2@mail.com",
+        "sender": {
+            "name": "SenderName",
+            "mail": "sender@mail.com",
+            "individualIdentificationCode": "23993401409"
+        },
+        "accountId": 150556
+    }
+}
+        </code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+
+
+
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoDownload" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Download Certificate</h1>
+                        <p>Download the registered email certificate by certificate filename.</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/registeredEmail/downloadCertificate</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request headers</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>Content-Type (optional)</td>
+                                    <td>string</td>
+                                    <td>Media type of the body sent to the API.</td>
+                                </tr>
+                                <tr>
+
+                                    <td>Token</td>
+                                    <td>string</td>
+                                    <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        
+
+                        <p>Request body</p>
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-primary">
+
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        application/json
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h4>Sample</h4>
+                                                <pre><code>
+{
+    "certificateFileName": "string"
+}
+    </code></pre>
+                                            </div>
+
+
+                                            <div class="col-md-6">
+                                                <h4>Schema</h4>
+                                                <pre><code>
+{
+    "example": {
+        "subject": "Email Subject",
+        "body": "Here accepts plain text or HTML",
+        "recipients": [
+            {
+                "name": "NameRecipient_1",
+                "email": "recipient_1@mail.com"
+            },
+            {
+                "name": "NameRecipient_2",
+                "email": "recipient_2@mail.com"
+            }
+            ],
+            "attachments": [
+            {
+                "upload": {
+                "id": "uploads/131740-e96c2160-4a90-4e8b-8d03-35eb316e67c4/PDF-minimo.pdf",
+                "name": "PDF-minimo.pdf"
+                }
+            },
+            {
+                "upload": {
+                    "id": "uploads/146132-e53c1a7f-28aa-4570-a51d-f03eb63e35cc/PDF-Teste.pdf",
+                    "name": "PDF-Teste.pdf"
+                }
+            }
+        ],
+        "notified": "notified_1@mail.com,notified_2@mail.com",
+        "sender": {
+            "name": "SenderName",
+            "mail": "sender@mail.com",
+            "individualIdentificationCode": "23993401409"
+        },
+        "accountId": 150556
+    }
+}
+    </code></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+
+                        <p>Certificate File</p>
+
+
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoListFilter" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>List By Filter</h1>
+                        <p>In order to list the registered emails it is necessary to inform the indicated period of the
+                            start date and the end date (dd/mm/yy) and also the compayId. By default the offset is equal
+                            to 0 and the maximum number of records is equal to 100</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/registeredEmail/ListByFilters?start={start}&end={end}&offset={offset}&max={max}&companyId={compayId}
+                        </p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request parameters</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>start</td>
+                                    <td>string</td>
+                                    <td>Start Date</td>
+                                </tr>
+
+                                <tr>
+                                    <td>end</td>
+                                    <td>string</td>
+                                    <td>End Date</td>
+                                </tr>
+
+                                <tr>
+                                    <td>offset</td>
+                                    <td>integer</td>
+                                    <td>offset</td>
+                                </tr>
+
+                                <tr>
+                                    <td>max</td>
+                                    <td>integer</td>
+                                    <td>Max Results</td>
+                                </tr>
+
+                                <tr>
+                                    <td>companyId</td>
+                                    <td>integer</td>
+                                    <td>Company Id</td>
+                                </tr>
+
+
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request headers</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Token</td>
+                                    <td>string</td>
+                                    <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+
+
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoListPeriod" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>List By Period</h1>
+                        <p>In order to list the registered emails it is necessary to inform the indicated period of the start date and the end date (dd/mm/yy). By default the offset is equal to 0 and the maximum number of records is equal to 100</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/registeredEmail/ListByPeriod?inicio={inicio}&fim={fim}&offset={offset}&max={max}
+                        </p>
+                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th><h4>Request parameters</h4></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>inicio</td>
+                                        <td>string</td>
+                                        <td>Start Date</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>fim</td>
+                                        <td>string</td>
+                                        <td>End Date</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>offset</td>
+                                        <td>integer</td>
+                                        <td>Offset</td>
+                                    </tr>
+    
+                                    <tr>
+                                        <td>max</td>
+                                        <td>integer</td>
+                                        <td>Max Results</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request headers</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Token</td>
+                                    <td>string</td>
+                                    <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        
+
+
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+                        <p>List of registered emails received and sent. The "delivered" property indicates the status of the email, and the "certifcate" property will display the name of the certificate file that can be downloaded by the API "Download Certificate".</p>
+
+                        <p>Representations</p>
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">application/json</div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        
+                                        <pre><code>
+{
+    "sent": [
+        {
+            "id": 123,
+            "subject": "Subject Text",
+            "certificate": "emailVerificador/140298-9281b1c-9f23-639y-b9bd-ebcefb27a60d/Certificado.pdf",
+            "date": "2019-03-21T11:55:41.783",
+            "receiverId": 456,
+            "senderId": 789,
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut tortor eget diam lacinia mollis.",
+            "documentId": 0,
+            "document": null,
+            "companyId": 987,
+            "company": "ACME",
+            "delivered": true,
+            "receiver": "John Ruppert",
+            "sender": "Nigel Sutter",
+            "receiverEmail": null
+        }
+    ],
+    "received": [
+        {
+            "id": 100,
+            "subject": "Subject Text",
+            "certificate": "",
+            "date": "2019-03-20T18:54:08.52",
+            "receiverId": 11254,
+            "senderId": 11954,
+            "text": "Lorem ipsum porttitor lacus vel lacus semper, at porta leo elementum.",
+            "documentId": 15932,
+            "document": "Sample Document",
+            "companyId": 1,
+            "company": "Contoso",
+            "delivered": false,
+            "receiver": "Josh Brown",
+            "sender": "Sean Litt",
+            "receiverEmail": null
+        }
+    ]
+}
+            </code></pre>
+                                    </div>
+
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        
+
+
+
+                    </article>
+                </div>
+
+                <hr>
+
+            </div>
+
+
+
+
+        </div>
+
+        <footer>
+            <div class="footer-blurb">
+                <div class="small-print">
+                    <div class="container">
+                        <small>
+                            <strong>Vertsign:</strong>
+                            <a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+                            <a class="link-default" href="./politica.html">Política de Privacidade</a>
+                        </small>
+                        <small>
+                            <strong>Certisign:</strong>
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+                                Privacidade</a>
+                        </small>
+                        <br>
+                        <small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+                        <small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+                        <small><strong>+55 (11) 2663-8989</strong></small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

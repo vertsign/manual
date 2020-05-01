@@ -1,0 +1,146 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: black;
+}
+
+footer small {
+    display: block;
+}
+
+img {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+article {
+    margin-top: 50px;
+}
+
+
+.fixed-menu {
+    box-shadow: 1px 1px 10px #c5c5c5;
+}
+
+.navbar-fixed-top {
+    box-shadow: 1px 6px 30px #c5c5c5;
+}
+
+.fixed-menu .panel-heading{
+    color: #fff !important;
+    background-color: #0481c4 !important;
+}
+
+#side-carousel img {
+    margin: 0 auto;
+}
+
+
+.footer-blurb {
+    padding: 30px 0;
+    margin-top: 20px;
+    background-color: #eee;
+    color: black;
+}
+
+.footer-blurb-item {
+    padding: 20px;
+}
+
+.small-print {
+    padding: 30px 0;
+}
+
+.feature,
+.page-intro,
+.article-intro,
+.small-print {
+    text-align: center;
+}
+
+
+
+
+.navbar-default .navbar-nav>.active>a {
+    color: #fff !important;
+    background-color: #0384cd !important;
+}
+
+.container-fluid {
+
+    /* margin-top: 100px; */
+    animation: fadein 1s;
+    -moz-animation: fadein 1s;
+    /* Firefox */
+    -webkit-animation: fadein 1s;
+    /* Safari and Chrome */
+    -o-animation: fadein 1s;
+    /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#navbar {
+    display: flex !important;
+    justify-content: center;
+}
+
+#toTop {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+#secaoFAQ {
+    margin-top: 10px;
+}

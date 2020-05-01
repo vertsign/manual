@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Vertsign | Manual</title>
+
+	<link type="text/css" rel="stylesheet" href="css/fluig-style-guide.min.css" />
+
+	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/mediaqueries.css" rel="stylesheet">
+	<link rel="shortcut icon" href="images/logo.png" />
+
+
+</head>
+
+<body>
+	<div class="fluig-style-guide">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="collapse navbar-collapse" id="navbar">
+					<ul class="nav navbar-nav">
+						<li>
+							<a href="instalacao.html"> </span> Instalação</a>
+						</li>
+						<li class="active">
+							<a href="configuracao.html"></span> Configuração</a>
+						</li>
+						<li>
+							<a href="index.html"></span> Uso</a>
+						</li>
+						<li>
+							<a href="portal.html"></span> Portal de Assinaturas</a>
+						</li>
+						<li>
+							<a href="suporte.html"></span> Suporte</a>
+						</li>
+						<li>
+							<a href="faq.html"></span> FAQ</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+
+			<div class="col-sm-3">
+
+				<div class="panel panel-info fixed-menu">
+					<div class="panel-heading">
+						<h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Tópicos</h1>
+					</div>
+					<div class="list-group">
+						<a href="#secaoParametros" class="list-group-item">Parâmetros</a>
+						<a href="#secaoCampos" class="list-group-item">Campos</a>
+						<a href="#secaoServicoExterno" class="list-group-item">Serviço externo</a>
+						<a href="#secaoUsuarioIntegracao" class="list-group-item">Usuário de integração</a>
+						<a href="#secaoRotinasIntegracao" class="list-group-item">Rotinas de integração</a>
+						<a href="#secaoAgendamento" class="list-group-item">Configurações do agendamento</a>
+						<!-- <a href="#secaoSMatrizPortabilidade" class="list-group-item">Matriz de Portabilidade</a> -->
+						<a href="#secaoIntegracaoBpm" class="list-group-item">Integração com BPM</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-6">
+
+
+				<div id="secaoParametros" class="row">
+					<article class="col-xs-12">
+						<h2>Parâmetros</h2>
+						<p>Os parâmetros são obrigatórios na instalação a fim de definir todas as configurações iniciais
+							necessárias para
+							começar a utilizar o app. Abaixo encontra-se a descrição de cada campo:</p>
+						<img src="images/wizard-param1.png" class="img-fluid" alt="">
+
+					</article>
+				</div>
+
+
+				<div id="secaoCampos" class="row">
+					<article class="col-xs-12">
+						<h2>Campos</h2>
+						<h3>Token</h3>
+						<p>O Token é uma informação de controle de acesso no Portal de Assinaturas Certisign.
+							Na contratação do app Vertsign dois ambientes do Portal de Assinaturas Certisign são
+							liberados: um ambiente de homologação e um ambiente de produção. Cada ambiente possui o seu
+							respectivo token.
+							O Token será enviado por email pela Vertsign para o administrador do sistema cadastrado na
+							TOTVS. Caso a empresa não tenha recebido o token, favor encaminhar um email para <a
+								class="link-default" href="mailto:contato@vertsign.com.br"
+								target="_top">contato@vertsign.com.br</a>.
+						</p>
+
+
+						<h3>Nome do usuário de integração (fluig)</h3>
+						<p>Usuário admin do fluig responsável pelas integrações.</p>
+
+						<h3>Senha de integração (fluig)</h3>
+						<p>Senha do usuário de integração.</p>
+
+						<h3>Ambiente</h3>
+						<p>Definir se a integração será feita no ambiente de homologação ou no ambiente de produção da
+							Certisign.</p>
+
+
+
+					</article>
+				</div>
+
+
+				<div id="secaoServicoExterno" class="row">
+					<article class="col-xs-12">
+						<h2>Serviço externo</h2>
+						<h3>vertsignServiceRest</h3>
+						<p>Após preencher todos os campos e clicar em “Salvar”, o formulário de parâmetros gerais será
+							atualizado com as
+							novas informações e o serviço vertsignServiceRest será criado no fluig.</p>
+						<img src="images/wizard-param3.png" class="img-fluid" alt="">
+						<p>O campo token é utilizado para realizar as integrações entre o fluig e a
+							Certisign. O serviço
+							vertsignServiceRest é o responsável por fazer esta integração. Caso o token seja alterado,
+							este serviço será
+							removido e criado novamente com o novo token.</p>
+
+
+						<p>Os endereços abaixo devem ser liberados para que as integrações sejam realizadas:
+							<p>https://api-sbx.portaldeassinaturas.com.br</p>
+							<p>https://api.portaldeassinaturas.com.br</p>
+						</p>
+
+
+						<img src="images/wizard-param4.png" class="img-fluid" alt="">
+					</article>
+				</div>
+
+
+				<div id="secaoUsuarioIntegracao" class="row">
+					<article class="col-xs-12">
+						<h2>Usuário de integração</h2>
+
+
+						<p>Na última etapa da instalação deve ser definido nos <a class="link-default"
+								href="./configuracao.html#secaoParametros">Parâmetros</a> um usuário administrador
+							para
+							realizar as integrações internas do fluig.</p>
+
+						<p>Caso o fluig esteja configurado com o Identity, o campo “Senha de integração (fluig)” deve
+							ser preenchido com a senha do Identity do usuário de integração.</p>
+
+
+						<div class="alert alert-danger" role="alert">
+							<h3 class="fs-no-margin-top">
+								<strong>Atenção!</strong>
+							</h3>
+							<p>Caso a senha do usuário de integração seja alterada,
+								deve-se lembrar de alterar também nos parâmetros.</p>
+							<p>Outro cuidado que deve ser tomado é caso o usuário de integração seja desativado da
+								plataforma. Nesse caso, deve-se acessar os parâmetros do app e definir outro
+								usuário.</p>
+							</p>
+						</div>
+					</article>
+				</div>
+
+
+				<div id="secaoRotinasIntegracao" class="row">
+					<article class="col-xs-12">
+						<h2>Rotinas de integração</h2>
+						<p>A integração entre fluig e Certisign ocorrem através de datasets sincronizados que verificam
+							o status da
+							assinatura dos documentos e realizam as integrações.
+							Por padrão esses scripts são executados uma vez por dia, mas também podem ser executados
+							manualmente acessado o
+							Agendador de Tarefas no Painel de Controle. O fluig permite também alterar esse tempo de
+							agendamento.
+						</p>
+
+						<p>Os datasets responsáveis por realizar o envio/download dos documentos são:</p>
+						<ul>
+							<li><strong>ds_upload_vertsign</strong>: Envia os documentos para assinatura.</li>
+							<li><strong>ds_package_vertsign</strong>: Baixa os documentos assinados.</li>
+						</ul>
+						<img src="images/wizard-agendador1.png" class="img-fluid" alt="">
+						
+					</article>
+				</div>
+
+				<div id="secaoAgendamento" class="row">
+					<article class="col-xs-12">
+						<h2>Configurações do Agendamento</h2>
+						<p>Após a instalação dos datasets, as rotinas de integração serão configuradas para executar uma vez por dia.
+							Essas rotinas são responsáveis por enviar e baixar os documentos do Portal de Assinaturas da Certisign.
+						</p>
+						<p>Mas existe a possibilidade de alterar a frequência de execução. Abaixo será explicado como o usuário administrador
+							da plataforma pode realizar essa alteração:
+						</p>
+						<ol>
+							<li>Acesse o Painel de Controle do fluig</li>
+							<li>Acesse o Agendador de tarefas</li>
+							<li>Localize as duas rotinas de integração (ds_package_vertsign e ds_upload_package)</li>
+							<li>Selecione a rotina que deseja alterar</li>
+							<li>Clique em <strong>Deletar</strong></li>
+							<li>Clique em <strong>Adicionar</strong></li>
+							<li>Insira uma descrição e selecione a opção "Sincronização de dataset"</li>
+							<img style="width: 400px;" src="images/config-agendador1.png" class="img-fluid" alt="">
+							<li>Selecione o dataset <strong>ds_package_vertsign</strong></li>
+							<img style="width: 400px;" src="images/config-agendador2.png" class="img-fluid" alt="">
+							<li>Feito isso, selecione a frequência de execução e clique em <strong>Confirmar</strong>. Mais detalhes em <a target="_blank" class="link-default" href="http://tdn.totvs.com/display/public/HF/Agendador+de+tarefas">fluig help</a>.</li>
+							<img style="width: 400px;" src="images/config-agendador3.png" class="img-fluid" alt="">
+							
+						</ol>
+
+						<p>Agora a rotina que baixa os documentos assinados do Portal de Assinaturas da Certisign será executada com a frequência determinada. </p>
+						<p>A data da próxima sincronização é exibida do lado superior direito do <a class="link-default" href="./index.html#secaoAcompanha">Quadro de Status</a> como na imagem abaixo:</p>
+						<img style="width: 250px;" src="images/config-agendador4.png" class="img-fluid" alt="">
+						
+					</article>
+				</div>
+
+
+				<!-- <div id="secaoSMatrizPortabilidade" class="row">
+					<article class="col-xs-12">
+						<h2>Matriz de Portabilidade</h2>
+						<p>Na matriz de portabilidade você encontra os requisitos necessários para a execução do app
+							Vertsign.</p>
+						<img src="images/wizard-matriz5.png" class="img-fluid" alt="">
+						<img src="images/wizard-matriz1.png" class="img-fluid" alt="">
+						<img src="images/wizard-matriz2.png" class="img-fluid" alt="">
+						<img src="images/wizard-matriz3.png" class="img-fluid" alt="">
+						<img src="images/wizard-matriz4.png" class="img-fluid" alt="">
+
+
+					</article>
+				</div> -->
+
+
+				<div id="secaoIntegracaoBpm" class="row">
+					<article class="col-xs-12">
+						<h2>Integração com BPM</h2>
+						<p>Após a aquisição do app, todas as funcionalidades de integração entre ECM e Certisign estarão
+							disponíveis na plataforma. Caso haja a necessidade de implementar um processo que possui
+							envio de documentos para assinatura, todas as funções necessárias para realizá-lo poderão
+							ser reaproveitadas do app Vertsign. Ou seja, o componente Vertsign permite que o envio de
+							documentos para assinatura através de um processo possa ser realizado.
+							Para isso, é necessário seguir algumas etapas. Abaixo está detalhado um exemplo de como
+							enviar um documento para assinatura através de um processo.
+							<ul>
+								<li>Criar um registro no formulário “Formulário Auxiliar” que está localizada dentro da
+									pasta “Formulário – Vertsign”</li>
+								<li>Nesse registro deve ser inserido os seguintes campos:</li>
+								<ul>
+									<li>Nome Documento (nome do documento anexado ao processo)</li>
+									<li>Cód. Documento (código do documento anexado ao processo)</li>
+									<li>Versão Documento</li>
+									<li>Pasta Origem (pasta onde está localizado o documento)</li>
+									<li>E-mail (e-mail dos assinantes separado por “;”)</li>
+									<li>Remetente (código do usuário remetente)</li>
+									<li>Status da Assinatura (“Enviando para assinatura”)</li>
+									<li>Data (Data em que o documento foi enviado)</li>
+									<li>Hora (Horário em que o documento foi enviado)</li>
+									<li>Feito isso, as rotinas de integração (ds_upload_vertsign e ds_package_vertsign)
+										se
+										encarregarão de realizar as integrações com a Certisign.</li>
+								</ul>
+
+							</ul>
+
+							<a class="link-default" href="workflow_vertsign.zip"><strong>Baixar exemplo.</strong></a>
+
+						</p>
+					</article>
+				</div>
+
+			</div>
+		</div>
+
+		<footer>
+			<div class="footer-blurb">
+				<div class="small-print">
+					<div class="container">
+						<small>
+							<strong>Vertsign:</strong>
+							<a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+							<a class="link-default" href="./politica.html">Política de Privacidade</a>
+						</small>
+						<small>
+							<strong>Certisign:</strong>
+							<a class="link-default" target="_blank"
+								href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+							<a class="link-default" target="_blank"
+								href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+								Privacidade</a>
+						</small>
+						<br>
+						<small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+						<small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+						<small><strong>+55 (11) 2663-8989</strong></small>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+
+
+</body>
+
+</html>

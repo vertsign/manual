@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vertsign | Manual</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/fluig-style-guide.min.css" />
+
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/mediaqueries.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/logo.png" />
+
+    <style>
+        .panel-body {
+            max-height: 250px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="api.html"> </span> Integration</a>
+                        </li>
+                        <li>
+                            <a href="documentApi.html"> </span> Document</a>
+                        </li>
+                        <li>
+                            <a href="registeredEmailApi.html"></span> Registered Email</a>
+                        </li>
+                        <li class="active">
+                            <a href="signatureApi.html"></span> Signature</a>
+                        </li>
+                        <li>
+                            <a href="signatureVerifierApi.html"></span> Signature Verifier</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <div class="col-sm-3">
+
+                <div class="panel panel-info fixed-menu">
+                    <div class="panel-heading">
+                        <h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Endpoints</h1>
+                    </div>
+                    <div class="list-group">
+                        <a href="#secaoEvidences" class="list-group-item">
+                            <p><span class="label label-success"><strong>GET</strong></span> Evidences </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div id="secaoEvidences" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Evidences</h1>
+                        <p>Returns all evidence of an electronically signed document</p>
+
+                        <h3>Request</h3>
+                        <p><strong>Request URL: </strong>
+                            https://api-sbx.portaldeassinaturas.com.br/api/v2/Signature/evidences?key={key}</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th><h4>Request parameters</h4></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>key</td>
+                                    <td>string</td>
+                                    <td>Document Key</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+
+                        <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Request headers</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+    
+                                        <td>Token</td>
+                                        <td>string</td>
+                                        <td>Subscription key which provides access to this API. Found in your Profile.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        
+
+          
+                        
+                        <h3>Responses</h3>
+                        <h3>200 OK</h3>
+
+                        
+
+                    </article>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-blurb">
+                <div class="small-print">
+                    <div class="container">
+                        <small>
+                            <strong>Vertsign:</strong>
+                            <a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+                            <a class="link-default" href="./politica.html">Política de Privacidade</a>
+                        </small>
+                        <small>
+                            <strong>Certisign:</strong>
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+                                Privacidade</a>
+                        </small>
+                        <br>
+                        <small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+                        <small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+                        <small><strong>+55 (11) 2663-8989</strong></small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>

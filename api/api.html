@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Vertsign | Manual</title>
+
+    <link type="text/css" rel="stylesheet" href="../css/fluig-style-guide.min.css" />
+
+    <link href="../css/custom.css" rel="stylesheet">
+    <link href="../css/mediaqueries.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/logo.png" />
+
+    <style>
+        .panel-body {
+            max-height: 250px;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fluig-style-guide">
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav">
+                      	<li class="active">
+                            <a href="api.html"> </span> Integration</a>
+                        </li>
+                        <li>
+                            <a href="documentApi.html"> </span> Document</a>
+                        </li>
+                        <li>
+                            <a href="registeredEmailApi.html"></span> Registered Email</a>
+                        </li>
+                        <li>
+                            <a href="signatureApi.html"></span> Signature</a>
+                        </li>
+                        <li>
+                            <a href="signatureVerifierApi.html"></span> Signature Verifier</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <div class="col-sm-3">
+
+                <div class="panel panel-info fixed-menu">
+                    <div class="panel-heading">
+                        <h1 class="panel-title"><span class="glyphicon glyphicon-menu-hamburger"></span> Tópicos</h1>
+                    </div>
+                    <div class="list-group">
+                        <a href="#secaoSandbox" class="list-group-item">
+                            <p> Sandbox </p>
+                        </a>
+
+                        <a href="#secaoProduction" class="list-group-item">
+                            <p> Production </p>
+                        </a>
+
+                        <a href="#secaoAuth" class="list-group-item">
+                            <p> Authentication </p>
+                        </a>
+
+                        <a href="#secaoError" class="list-group-item">
+                            <p> Error Codes </p>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div id="secaoSandbox" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Sandbox </h1>
+                        <p>In order to offer the most flexible integration, we provide developers with a completely free and unlimited test environment.
+                            Check out the API Documentation that describes how to use the APIs.</p>
+                          <p>It is important to test their features before starting the execution of the application in production environment to ensure that it will operate free from errors, in addition to making sure that it complies with all the rules defined by the use of APIs.</p>
+                
+                          <p>Also important is underline that Sandbox environment is completely independent and there is no link with Production. This means that you will have one API Token for Sandbox environment and another for Production environment. There is no native way to switch from test to live environment. Just use the appropriate Token and appropriate URL to perform a test or live integration.</p>
+                          <div class="alert alert-warning" role="alert">
+                              <h3 class="fs-no-margin-top">
+                                <strong>Note</strong>
+                              </h3>
+                              <p>All signed documents on Sandbox are NOT legally signed. The certificate used as part of these signatures will NOT comply with legal expectations.</p>
+                              
+                            </div>
+                            
+                            <p><strong>Base URL: </strong>
+                              <pre>https://api-sbx.portaldeassinaturas.com.br/api/v2/</pre></p>
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoProduction" class="row">
+                    <article class="col-xs-12 anchor">
+                        <h1>Production </h1>
+                        <p>Have you already an account in Vertsign Portal? Make sure your plan fits your needs or update it to request your Token. If your existing account is a post paid plan, you can request your Token, but will be pending approval. You can send a message to get your approval faster.</p>
+        
+                        <p>So, you should update the URL for your integration, as well as the new Token.</p>
+                        <p><strong>Base URL: </strong>
+                          <pre>https://api.portaldeassinaturas.com.br/api/v2/</pre></p>
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoAuth" class="row">
+                    <article class="col-xs-12 anchor">
+                      <h1>Authentication</h1>
+                        <p>The APIs authentication is carried out with the information of a Token you have to send in the header to authenticate all requests.</p>
+                        <div class="alert alert-info" role="alert">
+                            
+                            <p><strong>Token: </strong>It's a unique value generated for a product subscritpion.</p>
+                            
+                          </div>
+                        
+                        <h2>Transport Protocol </h2>
+                        <p>For security reasons, all information passed through the APIs should be made through HTTPS protocol, which ensures a safe channel and eliminates the manually encrypted tokens. So, you can only use our API through HTTPS protocol and calls made over plain HTTP will fail.</p>
+        
+                        
+
+                    </article>
+
+                    <article class="col-xs-12 anchor">
+                        <h2>Authentication Errors </h2>
+                        <blockquote>
+                            <strong>Inexistent/wrong Token:</strong>The error 401 Unauthorized is returned.
+                            <p>Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription.</p>
+                          </blockquote>
+
+                    </article>
+                </div>
+
+                <hr>
+
+                <div id="secaoError" class="row">
+                    <article class="col-xs-12 anchor">
+                      <h1>Error Codes</h1>
+                      <p>The API must return the <a class="link-default" href="http://en.wikipedia.org/wiki/List_of_HTTP_status_codes">correct HTTP codes</a> for each request.</p>
+
+                      <table cellpadding="6" cellspacing="2" class="table table-striped">
+                          <thead>
+                            <tr>
+                              <th>
+                                Código</th>
+                              <th>
+                                Erro</th>
+                              <th>
+                                Descrição</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>
+                                200</td>
+                              <td>
+                                OK</td>
+                              <td>
+                                Success!!</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                400</td>
+                              <td>
+                                Bad Request</td>
+                              <td>
+                                The request has invalid parameter(s).</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                401</td>
+                              <td>
+                                Unauthorized</td>
+                              <td>
+                                The access token has not been informed or does not have access to the APIs.</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                404</td>
+                              <td>
+                                Not Found</td>
+                              <td>
+                                The informed feature in the request has not been found.</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                406</td>
+                              <td>
+                                Unauthorized</td>
+                              <td>
+                                Access not authorized to the feature.</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                413</td>
+                              <td>
+                                Request is to Large</td>
+                              <td>
+                                The request is exceeding the limit allowed for your access token profile.</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                422</td>
+                              <td>
+                                Too many Requests</td>
+                              <td>
+                                The consumer has exceeded the limit of requests by time.</td>
+                            </tr>
+                            <tr>
+                              <td>
+                                500</td>
+                              <td>
+                                Internal Server Error</td>
+                              <td>
+                                Unexpected error, something is broken in the API.</td>
+                            </tr>
+                          </tbody>
+                        </table>
+
+                    </article>
+
+                  
+                </div>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <div class="footer-blurb">
+                <div class="small-print">
+                    <div class="container">
+                        <small>
+                            <strong>Vertsign:</strong>
+                            <a class="link-default" href="./termos.html">Termos &amp; Condições</a> |
+                            <a class="link-default" href="./politica.html">Política de Privacidade</a>
+                        </small>
+                        <small>
+                            <strong>Certisign:</strong>
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/TermosDeUso">Termos de Uso</a> |
+                            <a class="link-default" target="_blank"
+                                href="https://vertsign.portaldeassinaturas.com.br/Info/PoliticaPrivacidade">Política de
+                                Privacidade</a>
+                        </small>
+                        <br>
+                        <small>Avenida Dr. Cardoso de Melo, 1.460 | 8º andar | Cj. 82</small>
+                        <small>Vila Olímpia, São Paulo | Brasil | CEP: 04548-005</small>
+                        <small><strong>+55 (11) 2663-8989</strong></small>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+
+</html>
